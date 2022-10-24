@@ -1,0 +1,63 @@
+<%- include ('../partials/header.ejs') %>
+
+<%- include ('../partials/main_nav.ejs') %>
+  
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-7">
+            <h1><%= title %></h1>
+            <% if(typeof displayName == 'string' && displayName) { %>
+            <a href="/contact-list/add" class="w3-button w3-black w3-margin-bottom" role="button">
+            <i class="fas fa-plus-circle"></i> Add a Contact </a>
+            <% } %>
+            <br>
+            <table class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+                <!-- Header Row -->
+                <tr>
+                <% if(typeof displayName == 'string' && displayName) { %>
+                    <th class="w3-dark-grey w3-large w3-padding-20">Name</th>
+                    <th class="w3-dark-grey w3-large w3-padding-20">Email</th>
+                    <th class="w3-dark-grey w3-large w3-padding-20">Contact</th>
+                    <th class="w3-dark-grey w3-large w3-padding-20"></th>
+                  <th class="w3-dark-grey w3-large w3-padding-20"></th>
+                  <% } else { %>
+                  <th class="w3-dark-grey w3-large w3-padding-20">Name</th>
+                    <th class="w3-dark-grey w3-large w3-padding-20">Email</th>
+                    <th class="w3-dark-grey w3-large w3-padding-20">Contact</th>
+                  <% } %>
+                </tr>
+
+                <!-- Repeatable Template Row -->
+
+                <% for(let count = 0; count < ContactList.length; count++) { %>
+                  <tr>
+                  <% if(typeof displayName == 'string' && displayName) { %>
+                      <td class="w3-padding-large"><%= ContactList[count].name %></td>
+                      <td class="w3-padding-large"><%= ContactList[count].email %></td>
+                      <td class="w3-padding-large"><%= ContactList[count].contactno %></td>
+                      <td class="w3-padding-large">
+                          <a href="/contact-list/edit/<%= ContactList[count]._id %>" class="w3-button w3-black w3-margin-bottom">
+                          <i class="fas fa-pencil-alt"></i> Edit</a>
+                      </td>
+                      <td class="w3-padding-large">
+                          <a href="/contact-list/delete/<%= ContactList[count]._id %>" class="w3-button w3-black w3-margin-bottom">
+                          <i class="fas fa-trash-alt"></i> Delete</a>
+                      </td>
+                      <% } else { %>
+                      <td class="w3-padding-large"><%= ContactList[count].name %></td>
+                      <td class="w3-padding-large"><%= ContactList[count].email %></td>
+                      <td class="w3-padding-large"><%= ContactList[count].contactno %></td>
+                      <% } %>
+                  </tr>
+              <% } %>
+            </table>
+        </div>
+    </div>
+</main>
+  
+<%- include ('../partials/bottom_nav.ejs') %>  
+
+<%- include ('../partials/footer.ejs') %>
+  
