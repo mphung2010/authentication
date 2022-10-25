@@ -32,7 +32,7 @@
                 <!-- Repeatable Template Row -->
 
                 <% for(let count = 0; count < ContactList.length; count++) { %>
-                  <tr
+                  <tr>
                   <% if(typeof displayName == 'string' && displayName) { %>
                       <td class="w3-padding-large"><%= ContactList[count].name %></td>
                       <td class="w3-padding-large"><%= ContactList[count].email %></td>
