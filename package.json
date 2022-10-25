@@ -5,12 +5,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mphung2010/portfolio.git"
+    "url": "git+https://github.com/mphung2010/authentication.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "nodemon": "nodemon server.js"
+    "start": "node server.js"
+   
   },
   "engines": {
     "node": "^18.8.0",
